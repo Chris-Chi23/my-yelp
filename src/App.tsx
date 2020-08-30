@@ -1,24 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ThunkAction } from 'redux-thunk';
+import { normalize, schema } from 'normalizr';
+import {BusinessAPI} from './api/businessAPI';
 
-function App() {
+async function foo(){
+    const businessAPI = new BusinessAPI();
+    const temp = await businessAPI.getBusinessByPhone('1415749206022');
+  //  const category = new schema.Entity('categories');
+  //  const restaurant = new schema.Entity('restaurant', {
+   //     categories: [category]
+    //});
+//    const normalizedData = normalize(temp.data, restaurant);
+    console.log('xxxxx');
+    console.log(temp);
+  //  console.log(normalizedData);
+}
+foo();
+
+async function baz(){
+    console.log(await Promise.resolve('isise async'));
+}
+baz();
+console.log('next one!');
+async function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <p>aaabbb</p>
     </div>
   );
 }
